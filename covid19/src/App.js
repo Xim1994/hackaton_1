@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <h1>Covid19 Data</h1>
+      <CovidTable/>
     </div>
   );
 }
