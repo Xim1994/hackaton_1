@@ -42,4 +42,8 @@ const CountriesWhereCoronavirusHasSpread = () => {
     return sendRequest('CountriesWhereCoronavirusHasSpread', {method: 'GET'})
 }
 
-export default { CountriesWhereCoronavirusHasSpread } ;
+const ReportsByCountries = (country) => {
+    return sendRequest('ReportsByCountries/' + country, {method: 'GET'})
+}
+
+export default { CountriesWhereCoronavirusHasSpread, ReportsByCountries } ;

@@ -7,7 +7,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
-
+import { Link } from 'react-router-dom';
 
 const CovidTable = () => {
     const  [rows, setRows] = useState([]);
@@ -16,7 +16,6 @@ const CovidTable = () => {
         Api.CountriesWhereCoronavirusHasSpread().then((response) => {
             let newRows = [];
             response.table.map(data => {
-                console.log(data)
                 newRows.push({
                     'country': data['Country'],
                     'cases': data['Cases'],
@@ -39,10 +38,12 @@ const CovidTable = () => {
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
-                        <TableRow key={row.country}>
+                        <TableRow key={row.country}>                            
                             <TableCell component="th" scope="row">
-                                {row.country}
-                            </TableCell>
+                                <Link to={'/Chart/' + row.country.toLowerCase()} > 
+                                    {row.country}
+                                </Link>
+                            </TableCell>           
                             <TableCell align="right">{row.cases}</TableCell>
                             <TableCell align="right">{row.deaths}</TableCell>
                         </TableRow>
