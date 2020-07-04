@@ -3,9 +3,6 @@ import Api from '../../Api/index'
 import React, {useEffect, useState} from 'react';
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
     useParams
   } from "react-router-dom";
 
