@@ -28,7 +28,7 @@ function App() {
             <Route path="/navBar">
               <NavBar />
             </Route>
-            <Route path="/Chart">
+            <Route path="/Chart/:id">
               <Chart/>
             </Route>
           </Switch>

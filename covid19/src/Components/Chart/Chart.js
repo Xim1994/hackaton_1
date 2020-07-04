@@ -1,14 +1,22 @@
 import Chart from "react-google-charts";
 import Api from '../../Api/index'
 import React, {useEffect, useState} from 'react';
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams
+  } from "react-router-dom";
 
 const CovidChart = (props) => {
     const  [data, setdata] = useState([]);
+
+    let { id } = useParams();
     
     useEffect(() => {
         let newRows = [];
-        Api.ReportsByCountries(props.country).then((response) => {
+        Api.ReportsByCountries(id).then((response) => {
             newRows.push(['Number of people', 'Country'])
             newRows.push(['Deaths', response.report.deaths])
             newRows.push(['Cases', response.report.cases])
@@ -26,7 +34,7 @@ const CovidChart = (props) => {
                     loader={<div>Loading Chart</div>}
                     data={data}
                     options={{
-                        title: 'Status of ' + props.country,
+                        title: 'Status of ' + id,
                         chartArea: { width: '30%' },
                         hAxis: {
                             title: 'Total Population',
@@ -39,7 +47,7 @@ const CovidChart = (props) => {
                     legendToggle
                 />
                 </div>
-        </div>) : <div>NO DATA</div>
+        </div>) : <div>Waiting...</div>
     );
   };
   
