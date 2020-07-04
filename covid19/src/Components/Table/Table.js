@@ -8,7 +8,6 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 
-
 const CovidTable = () => {
     const  [rows, setRows] = useState([]);
     
