@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Table from '@material-ui/core/Table';
-import Api from '../Api/index'
+import Api from '../../Api'
 import TableContainer from "@material-ui/core/TableContainer";
 import Paper from "@material-ui/core/Paper";
 import TableHead from "@material-ui/core/TableHead";
@@ -48,7 +48,7 @@ const CovidTable = () => {
                     ))}
                 </TableBody>
             </Table>
-        </TableContainer>) : <div>No ROWS</div>
+        </TableContainer>) : <div>Waiting...</div>
     );
   };
   
