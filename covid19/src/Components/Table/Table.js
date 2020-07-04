@@ -16,6 +16,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import TableHead from "@material-ui/core/TableHead";
 import Api from '../../Api'
+import { Link } from 'react-router-dom';
 
 const useStyles1 = makeStyles((theme) => ({
     root: {
@@ -138,7 +139,9 @@ export default function CovidTable() {
                     ).map((row) => (
                         <TableRow key={row.country}>
                             <TableCell component="th" scope="row">
-                                {row.country}
+                                <Link to={'/Chart/' + row.country.toLowerCase()} > 
+                                        {row.country}
+                                </Link>
                             </TableCell>
                             <TableCell style={{ width: 160 }} align="right">
                                 {row.cases}
