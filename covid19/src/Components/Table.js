@@ -10,25 +10,26 @@ import TableBody from "@material-ui/core/TableBody";
 
 
 const CovidTable = () => {
-    const { data, setData } = useState();  
-    const rows = []
+    const  [rows, setRows] = useState([]);
     
     useEffect(() => {
-        Api.CountriesWhereCoronavirusHasSpread().then(response => {
+        Api.CountriesWhereCoronavirusHasSpread().then((response) => {
+            let newRows = [];
             response.table.map(data => {
-                rows.push({
-                    'Country': data['Country'],
-                    'Cases': data['Cases'],
-                    'Deaths': data['Deaths']
+                console.log(data)
+                newRows.push({
+                    'country': data['Country'],
+                    'cases': data['Cases'],
+                    'deaths': data['Deaths']
                 })
             })
-            console.log(rows)
+            setRows(newRows)
         })
       }, []);
   
     return (
-        <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="simple table">
+        (rows.length > 0) ? (<TableContainer component={Paper}>
+            <Table aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         <TableCell>Country</TableCell>
@@ -38,17 +39,17 @@ const CovidTable = () => {
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
-                        <TableRow key={row.name}>
+                        <TableRow key={row.country}>
                             <TableCell component="th" scope="row">
                                 {row.country}
                             </TableCell>
                             <TableCell align="right">{row.cases}</TableCell>
-                            <TableCell align="right">{row.death}</TableCell>
+                            <TableCell align="right">{row.deaths}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
             </Table>
-        </TableContainer>
+        </TableContainer>) : <div>No ROWS</div>
     );
   };
   
