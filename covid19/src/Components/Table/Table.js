@@ -51,7 +51,7 @@ const CovidTable = () => {
                     ))}
                 </TableBody>
             </Table>
-        </TableContainer>) : <div>No ROWS</div>
+        </TableContainer>) : <div>Waiting...</div>
     );
   };
   
