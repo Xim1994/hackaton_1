@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import Table from '@material-ui/core/Table';
-import Api from '../Api/index'
 import TableContainer from "@material-ui/core/TableContainer";
 import Paper from "@material-ui/core/Paper";
 import TableHead from "@material-ui/core/TableHead";
-import Api from '../../Api'
+import Api from '../../Api/index'
 import { Link } from 'react-router-dom';
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
